@@ -1,0 +1,155 @@
+{
+  "metadata": {
+    "name": "Menu",
+    "lastOpened": 1523012092452,
+    "created": 1523012063521
+  },
+  "iconSets": [
+    {
+      "selection": [
+        {
+          "order": 2,
+          "id": 3,
+          "name": "chevron-down",
+          "prevSize": 32,
+          "code": 59648,
+          "tempChar": ""
+        },
+        {
+          "order": 3,
+          "id": 2,
+          "name": "chevron-left",
+          "prevSize": 32,
+          "code": 59649,
+          "tempChar": ""
+        },
+        {
+          "order": 4,
+          "id": 1,
+          "name": "chevron-right",
+          "prevSize": 32,
+          "code": 59650,
+          "tempChar": ""
+        },
+        {
+          "order": 5,
+          "id": 0,
+          "name": "chevron-up",
+          "prevSize": 32,
+          "code": 59651,
+          "tempChar": ""
+        }
+      ],
+      "id": 0,
+      "metadata": {
+        "name": "Menu",
+        "importSize": {
+          "width": 448,
+          "height": 512
+        }
+      },
+      "height": 1024,
+      "prevSize": 32,
+      "icons": [
+        {
+          "id": 3,
+          "paths": [
+            "M414.058 762.952l-388.686-388.688c-18.746-18.746-18.746-49.138 0-67.882l45.334-45.334c18.714-18.714 49.044-18.75 67.802-0.080l309.492 308.042 309.49-308.042c18.758-18.67 49.088-18.634 67.802 0.080l45.334 45.334c18.746 18.746 18.746 49.138 0 67.882l-388.684 388.688c-18.746 18.744-49.138 18.744-67.884 0z"
+          ],
+          "attrs": [
+            {}
+          ],
+          "width": 896,
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "chevron-down"
+          ]
+        },
+        {
+          "id": 2,
+          "paths": [
+            "M69.040 478.060l388.7-388.68c18.74-18.74 49.14-18.74 67.88 0l45.34 45.34c18.72 18.72 18.74 49.040 0.080 67.8l-308.060 309.48 308.040 309.5c18.68 18.76 18.64 49.080-0.080 67.8l-45.34 45.34c-18.74 18.74-49.14 18.74-67.88 0l-388.68-388.7c-18.74-18.74-18.74-49.14 0-67.88z"
+          ],
+          "attrs": [
+            {}
+          ],
+          "width": 640,
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "chevron-left"
+          ]
+        },
+        {
+          "id": 1,
+          "paths": [
+            "M570.952 545.942l-388.688 388.686c-18.746 18.746-49.138 18.746-67.882 0l-45.334-45.334c-18.714-18.714-18.75-49.044-0.080-67.802l308.042-309.492-308.042-309.49c-18.67-18.758-18.634-49.088 0.080-67.802l45.334-45.334c18.746-18.746 49.138-18.746 67.882 0l388.686 388.686c18.746 18.744 18.746 49.136 0.002 67.882z"
+          ],
+          "attrs": [
+            {}
+          ],
+          "width": 640,
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "chevron-right"
+          ]
+        },
+        {
+          "id": 0,
+          "paths": [
+            "M481.942 261.048l388.686 388.686c18.746 18.746 18.746 49.138 0 67.882l-45.334 45.334c-18.714 18.714-49.044 18.75-67.802 0.080l-309.492-308.040-309.49 308.042c-18.758 18.67-49.088 18.634-67.802-0.080l-45.334-45.334c-18.746-18.746-18.746-49.138 0-67.882l388.686-388.686c18.744-18.746 49.136-18.746 67.882-0.002z"
+          ],
+          "attrs": [
+            {}
+          ],
+          "width": 896,
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "chevron-up"
+          ]
+        }
+      ],
+      "invisible": false,
+      "colorThemes": []
+    }
+  ],
+  "preferences": {
+    "showGlyphs": true,
+    "showQuickUse": true,
+    "showQuickUse2": true,
+    "showSVGs": true,
+    "fontPref": {
+      "prefix": "icon-",
+      "metadata": {
+        "fontFamily": "menu",
+        "majorVersion": 1,
+        "minorVersion": 0
+      },
+      "metrics": {
+        "emSize": 1024,
+        "baseline": 6.25,
+        "whitespace": 50
+      },
+      "embed": false
+    },
+    "imagePref": {
+      "prefix": "icon-",
+      "png": true,
+      "useClassSelector": true,
+      "color": 0,
+      "bgColor": 16777215,
+      "classSelector": ".icon"
+    },
+    "historySize": 50,
+    "showCodes": true,
+    "gridSize": 16
+  },
+  "uid": -1
+}

@@ -1,0 +1,407 @@
+@include fade();
+@include font();
+
+body { min-width: 320px; }
+
+header {
+    i.bars { display: none; }
+}
+
+menu {
+    background-color: $black;
+
+    @include full-block();
+
+    *, *:after, *:before{
+        @include box-sizing(border-box);
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+
+        &:hover { color: white; text-decoration: none; }
+    }
+}
+
+nav.nav {
+    position: relative;
+    max-width: 1340px;
+    padding: 0 20px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.2em;
+    line-height: 1.5;
+    background-color: $black;
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        @include flex-box();
+        @include flex-wrap(nowrap);
+        @include flex-direction(row);
+
+        li {
+            cursor: pointer;
+            position: relative;
+            list-style-type: none;
+            display: inline-block;
+
+            @include animation(fadein .5s);
+
+
+            span {
+                color: white;
+                text-decoration: none;
+
+                @include flex-box();
+                @include flex-wrap(nowrap);
+                @include flex-direction(row);
+                @include align-items(center);
+                @include justify-content(space-between);
+
+                i, a {
+                    position: relative;
+                    display: inline-block;
+                }
+            }
+
+            &:hover {
+                @include transition(background-color .5s ease);
+                background-color: $blue;
+                color: white;
+                text-decoration: none;
+
+                > ul { display: block; }
+            }
+
+            $subMenuWidth: 250px;
+            $subMenuSeparator: 5px;
+            ul {
+                position: absolute;
+                display: none;
+                width: $subMenuWidth;
+                z-index: 2;
+                top: 100%;
+                padding-top: $subMenuSeparator;
+
+                li {
+                    padding: 0;
+                    background-color: $blue;
+
+                    @include full-block();
+                    @include transition(background-color .5s ease);
+
+                    span {
+                        padding: 10px 15px;
+
+                        i {
+                            padding-left: 10px;
+
+                            &:before { content: "\e902"; }
+                        }
+                    }
+
+                    ul {
+                        width: $subMenuWidth + $subMenuSeparator;
+                        left: 100%;
+                        top: -$subMenuSeparator;
+                        padding-right: 0;
+                        padding-left: $subMenuSeparator;
+                    }
+
+                    &:before {
+                        content: '';
+                        width: calc(100% - 30px);
+                        height: 1px;
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        background-color: rgba(255, 255, 255, 0.5);
+
+                        @include translateX(-50%);
+                    }
+
+                    &:hover {
+                        background-color: $black;
+                        &:before { display: none; }
+                    }
+
+                    &:last-of-type {
+                        &:before { display: none; }
+                    }
+                }
+            }
+
+            &:last-child { margin-right: 0; }
+        }
+    }
+
+    > ul > li {
+        @include animation(none);
+
+        > span {
+            padding: 20px 15px;
+
+            > i {
+                padding-left: 10px;
+
+                &:before { content: "\e900"; }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        display: none;
+        z-index: 9;
+
+        @include opacity(.7);
+
+        &.show { display: block; }
+    }
+
+    header {
+        height: auto;
+        position: fixed;
+        width: 100%;
+        display: block;
+        top: 0;
+        left: 0;
+        z-index: 11;
+        padding: 20px 100px 20px 20px;
+        text-align: left;
+
+        h1, h1 span { text-align: left;}
+
+        h1 {
+            font-size: 2em;
+
+            span { font-size: .5em; padding-top: 5px; }
+        }
+
+        @include box-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+
+        i.bars {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            cursor: pointer;
+            display: inline-block;
+            right: 20px;
+            top: 50%;
+
+            @include translateY(-50%);
+            @include transition(background-color .5s ease);
+
+            span {
+                @include full-absolute();
+                @include transition(opacity .5s ease, transform .3s ease);
+
+                i {
+                    position: absolute;
+                    display: inline-block;
+                    width: 20px;
+                    height: 3px;
+                    background-color: $blue;
+                    left: 50%;
+                    top: 50%;
+
+                    @include transition(background-color .5s ease);
+                    @include translate(-50%, -50%);
+                    @include transition-properties(top, .3s, .3s);
+                }
+            }
+
+            &.active { span { i { @include transition-properties(top, 0s, 0s); } } }
+
+            span.top i { top: calc(50% - 7px); }
+            span.bottom i { top: calc(50% + 7px); }
+            span.top { @include rotate(0deg); }
+            span.bottom { @include rotate(0deg); }
+
+            &.active {
+                span.middle { @include opacity(0); }
+                span.top i { top: 50%; }
+                span.top { @include rotate(45deg); }
+                span.bottom i { top: 50%; }
+                span.bottom { @include rotate(-45deg); }
+            }
+        }
+    }
+
+    $mobileMenuWidth: 280px;
+
+    nav.nav {
+        border: 0;
+        background-color: white;
+        height: 100%;
+        width: $mobileMenuWidth;
+        padding: 0;
+        overflow: auto;
+
+        @include transition(transform .5s cubic-bezier(0.55, 0, 0.1, 1));
+        @include box-shadow(5px 0 5px 0 rgba(0, 0, 0, 0.1));
+
+        ul {
+            @include full-block();
+
+            li {
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+                background-color: white;
+                border-bottom: 1px solid $lightGray;
+
+                @include full-block();
+                @include animation(none);
+
+                > span {
+                    width: 100%;
+                    position: relative;
+                    background-color: white;
+                    color: $black;
+                    z-index: 3;
+                    font-size: .8em;
+
+                    @include flex-box();
+                    @include flex-wrap(nowrap);
+                    @include flex-direction(row);
+                    @include align-items(center);
+                    @include justify-content(space-between);
+
+                    i { display: none; }
+                }
+
+                ul {
+                    padding: 0;
+                    margin: 0;
+
+                    @include full-block();
+                    @include animation(none);
+                    @include transition(margin-top .5s cubic-bezier(0.55, 0, 0.1, 1));
+
+                    li {
+                        ul { display: none; }
+
+                        &:hover ul { display: none; }
+
+                        span i { padding-left: 0; }
+                    }
+
+                    &.show { margin-top: 0 !important; top: 0; }
+                }
+
+
+                &.active {
+                    background-color: $lightGray;
+
+                    > span {
+                        background-color: $blue;
+                        font-weight: bold;
+
+                        > a { color: white; }
+                        > i { background-color: white; color: $blue; }
+                    }
+
+                    ul {
+                        li {
+                            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+                            span { background-color: transparent; }
+                        }
+                    }
+                }
+
+                &:hover { background-color: $lightGray; }
+            }
+        }
+
+        > ul > li {
+            > span {
+                a { width: 80%; }
+                i {
+                    position: relative;
+                    width: 30px;
+                    height: 30px;
+                    background-color: $blue;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    padding-left: 0;
+
+                    @include flex-box();
+                    @include flex-wrap(nowrap);
+                    @include flex-direction(row);
+                    @include align-items(center);
+                    @include justify-content(center);
+
+                    &:before {
+                        position: absolute;
+                        padding: 0;
+                    }
+                }
+            }
+            
+            & > span i {
+                &:before {
+                    color: white;
+                    content: "\e900";
+                }
+            }
+
+            &.active > span i {
+                &:before {
+                    color: $blue;
+                    content: "\e903";
+                }
+            }
+        }
+
+        /*Reset menu*/
+        ul li {
+            cursor: default;
+            a i {
+                text-align: right;
+            }
+            ul li {
+                background-color: transparent;
+                border-bottom: 0;
+
+                span { margin: 0; padding: 20px 15px; }
+
+                &:hover { background-color: transparent; }
+            }
+            > ul > li { background-color: transparent; }
+        }
+    }
+
+    menu {
+        position: fixed;
+        width: $mobileMenuWidth;
+        z-index: 10;
+        left: -100%;
+        background-color: transparent;
+
+        @include transition(left .5s ease);
+
+        &.hide { left: -$mobileMenuWidth; }
+        &.show { left: 0; }
+
+        a {
+            color: $black;
+            text-decoration: none;
+
+            &:hover { color: $black; text-decoration: none; }
+        }
+    } 
+}
