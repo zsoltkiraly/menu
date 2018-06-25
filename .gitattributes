@@ -2,4 +2,3 @@
 * text=auto
 
 # Linguist language overrides
-*.scss linguist-language=JavaScript
