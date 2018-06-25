@@ -1,7 +1,7 @@
 # Menu v1.1.4
 
 <br />
-<a href="http://zsoltkiraly.com/developments/select/" target="_blank">DEMO PAGE</a>
+<a href="http://zsoltkiraly.com/developments/menu/" target="_blank">DEMO PAGE</a>
 
 #
 <br />
