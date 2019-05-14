@@ -3,6 +3,7 @@ Menu - Code by Zsolt Király
 v1.1.4 - 2018-04-10
 */
 
+'use strict';
 var menu = function() {
 
     function signatura() {
