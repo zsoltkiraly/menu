@@ -5,6 +5,28 @@ v1.1.4 - 2018-04-10
 
 var menu = function() {
 
+    function signatura() {
+        if (window['console']) {
+            const text = {
+                black: '%c     ',
+                blue: '%c   ',
+                author: '%c  Zsolt Király  ',
+                github: '%c  https://zsoltkiraly.com/'
+            }
+    
+            const style = {
+                black: 'background: #282c34',
+                blue: 'background: #61dafb',
+                author: 'background: black; color: white',
+                github: ''
+            }
+    
+            console.log(text.black + text.blue + text.author + text.github, style.black, style.blue, style.author, style.github);
+        }
+    }
+    
+    signatura();
+
     function desktopArrow(dropDown) {
         var i = 0,
             lenArrow = dropDown.length;
@@ -69,10 +91,7 @@ var menu = function() {
                         ulToggleArray = parentElement.querySelector('ul'),
                         iToggleArray = spanToggleArray.querySelector('i');
 
-                    var obj = this,
-                        objSpan = obj.parentElement,
-                        objI = objSpan.parentElement,
-                        objUl = objI.querySelector('ul');
+                    var obj = this;
 
                     if (window.matchMedia('(max-width: 992px)').matches) {
 
@@ -102,8 +121,7 @@ var menu = function() {
 
     function dropDownHeight(dropDown) {
         var i = 0,
-            dropDownHeights = dropDown.length,
-            toggleArrays = [];
+            dropDownHeights = dropDown.length;
         for (; i < dropDownHeights; i++) {
             var dropDownUl = dropDown[i];
             var dropDownHeight = dropDownUl.offsetHeight;
@@ -271,17 +289,16 @@ var menu = function() {
         }
     }
 
-    function DOMOverlay() {
+    function _DOMOverlay() {
         var newElement = document.createElement('div');
         newElement.setAttribute('id', 'overlay');
         document.body.insertBefore(newElement, document.body.firstChild);
     }
 
     function app() {
-        DOMOverlay();
+        _DOMOverlay();
 
         var hamburger = document.querySelector('header i.bars'),
-            main = document.querySelector('#main'),
             menu = document.querySelector('menu#menu'),
             header = document.querySelector('header'),
             dropDown = document.querySelectorAll('menu nav.nav ul li ul'),
@@ -301,7 +318,13 @@ var menu = function() {
             mobileMenuHide(hamburger, dropDown, overlay);
             dropDownHeight(dropDown);
         });
+
+        hamburger.addEventListener('click', function() {
+            checkPosition(menu, header);
+            dropDownHeight(dropDown);
+        });
     }
+
 
     return {
         app: app
