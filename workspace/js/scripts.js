@@ -205,7 +205,7 @@ var menu = function() {
     }
 
     function touch(hamburger, menu, overlay) {
-            startx = 0,
+        var startx = 0,
             dist = 0,
             gap = 30,
             max = 40;
